@@ -11,5 +11,12 @@
 
   <body>
     <h1>タスクアプリ</h1>
+    
+  <ul>
+  <% @tasks.each do |task| %>
+    <li><%= link_to task.id, task %> : <%= task.content %></li>
+  <% end %>
+  </ul>
   </body>
+  <%= link_to '新規内容の投稿', new_task_path %>
 </html>

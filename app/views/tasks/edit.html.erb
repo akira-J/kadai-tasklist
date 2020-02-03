@@ -10,6 +10,15 @@
   </head>
 
   <body>
-    <%= yield %>
+   <h1>id: <%= @task.id %> の内容の変更</h1>
+
+  <%= form_with(model: @task, local: true) do |f| %>
+    <%= f.label :content, '入力部分' %>
+    <%= f.text_field :content %>
+
+    <%= f.submit '投稿' %>
+  <% end %>
+
+  <%= link_to '一覧に戻る', tasks_path %>
   </body>
 </html>

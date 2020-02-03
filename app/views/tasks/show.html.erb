@@ -10,6 +10,10 @@
   </head>
 
   <body>
-    <%= yield %>
+    <h1>id: <%= @task.id %> 詳細ページ</h1>
+    <p><%= @task.content %></p>
+
+    <%= link_to '一覧に戻る', tasks_path %>
+    <%= link_to 'この内容を編集する', edit_task_path(@task) %>
   </body>
 </html>
