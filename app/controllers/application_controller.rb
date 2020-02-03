@@ -1,14 +1,14 @@
 class ApplicationController < ActionController::Base
   def index
-    @tasks = Tasks.all
+    @tasks = Task.all
   end
   def show 
-    @tasks = Tasks.find(params[:id])
+    @task = Task.find(params[:id])
   end
   def new
-    @tasks = Tasks.new(message_params)
+    @task = Task.new(message_params)
   end
   def edit
-    @tasks = Tasks.find(params[:id])
+    @task = Task.find(params[:id])
   end
 end
