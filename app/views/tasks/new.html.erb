@@ -1,16 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Tasklist</title>
-   <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-  <body>
-    <h1>新規内容作成ページ</h1>
+  <h1>新規内容作成ページ</h1>
   <%= form_with(model: @task, local: true) do |f| %>
     <%= f.label :content, 'タスク' %>
     <%= f.text_field :content %>
@@ -19,6 +7,4 @@
   <% end %>
 
   <%= link_to '一覧に戻る', tasks_path %>
-  
-  </body>
-</html>
+
