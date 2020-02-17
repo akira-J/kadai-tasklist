@@ -1,8 +1,23 @@
-    <h1>タスクアプリ</h1>
-    
-  <ul>
-  <% @tasks.each do |task| %>
-    <li><%= link_to task.id, task %> : <%= task.content %><%= task.status %></li>
-  <% end %>
-  </ul>
-  <%= link_to '新規内容の投稿', new_task_path %>
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-sm-4">
+      <%= form_with(model: @task, local: true) do |f| %>
+        <div class="form-group">
+          <%= f.text_area :content, class: 'form-control', rows: 5 %>
+          <%= f.text_area :status, class: 'form-control', rows:5 %>
+        </div>
+        <%= f.submit '登録', class: 'btn btn-primary btn-block' %>
+      <% end %>
+    </aside>
+    <div class="col-sm-8">
+      <%= render 'tasks/tasks', tasks: @tasks %>
+    </div>
+  </div>
+<% else %>
+  <div class="center jumbotron">
+    <div class="text-center">
+      <h1>タスク管理ツール</h1>
+      <%= link_to 'ログイン', login_path, class: 'btn btn-lg btn-primary' %>
+    </div>
+  </div>
+<% end %>
