@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     password = params[:session][:password]
     if login(name, password)
       flash[:success] = 'ログインに成功しました。'
-      redirect_to ("https://25b5d83796554922af33443d939ef62a.vfs.cloud9.us-east-1.amazonaws.com/")
+      redirect_to root_url
     else
       flash.now[:danger] = 'ログインに失敗しました。'
       render :new
