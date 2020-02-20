@@ -2,12 +2,12 @@ class SessionsController < ApplicationController
   def new
   end
 
- def create
-    name = params[:session][:name].downcase
+  def create
+    name = params[:session][:name]
     password = params[:session][:password]
     if login(name, password)
       flash[:success] = 'ログインに成功しました。'
-      redirect_to @user
+      redirect_to ("https://25b5d83796554922af33443d939ef62a.vfs.cloud9.us-east-1.amazonaws.com/")
     else
       flash.now[:danger] = 'ログインに失敗しました。'
       render :new

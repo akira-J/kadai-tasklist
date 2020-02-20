@@ -1,23 +1,10 @@
 <% if logged_in? %>
-  <div class="row">
-    <aside class="col-sm-4">
-      <%= form_with(model: @task, local: true) do |f| %>
-        <div class="form-group">
-          <%= f.text_area :content, class: 'form-control', rows: 5 %>
-          <%= f.text_area :status, class: 'form-control', rows:5 %>
-        </div>
-        <%= f.submit '登録', class: 'btn btn-primary btn-block' %>
-      <% end %>
-    </aside>
-    <div class="col-sm-8">
       <%= render 'tasks/tasks', tasks: @tasks %>
-    </div>
-  </div>
+    　<%= link_to '新規登録ページ', new_task_path %>
+    　<%= link_to 'ログアウト', logout_path, method: :delete, data: { confirm: "ログアウトしますか？" } %>
 <% else %>
-  <div class="center jumbotron">
     <div class="text-center">
       <h1>タスク管理ツール</h1>
       <%= link_to 'ログイン', login_path, class: 'btn btn-lg btn-primary' %>
     </div>
-  </div>
 <% end %>
