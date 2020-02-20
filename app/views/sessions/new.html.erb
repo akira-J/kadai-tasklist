@@ -2,8 +2,6 @@
   <h1>ログイン</h1>
 </div>
 
-<div class="row">
-  <div class="col-sm-6 offset-sm-3">
 
     <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
 
@@ -18,9 +16,7 @@
       </div>
     
       
-       <%= f.submit 'ログイン', class: 'btn btn-primary btn-block' %>
+       <%= f.submit 'ログイン' %>
     <% end %>
 
     <p>アカウントがない時? <%= link_to 'アカウント作成', signup_path %></p>
-  </div>
-</div>

@@ -1,13 +1,11 @@
   <% tasks.each do |task| %>
-        <div>
-           <%= link_to task.user.name, user_path(task.user) %> <span class="text-muted">posted at <%= task.created_at %></span>
-        </div>
+        <div><%= link_to task.user.name, user_path(task.user) %> posted at <%= task.created_at %></div>
         <div>
           <p>コンテント：<%= task.content %><br>ステータス：<%= task.status%></p>
         </div>
         <div>
           <% if current_user == task.user %>
-            <%= link_to "削除する", task, method: :delete, data: { confirm: "You sure?" }, class: 'btn' %>
+            <%= link_to "削除する", task, method: :delete, data: { confirm: "You sure?" } %>
           <% end %>
         </div>
   <% end %>
