@@ -1,3 +1,8 @@
-<%= render 'tasks/tasks', tasks: @tasks %>
-<%= link_to "新規登録ページ", new_task_path %>
-<%= link_to 'ログアウト', logout_path, method: :delete, data: { confirm: "ログアウトしますか？" } %>
+<% if logged_in?%>
+  <%= render 'tasks/tasks', tasks: @tasks %>
+  <%= link_to "新規登録ページ", new_task_path %>
+  <%= link_to 'ログアウト', logout_path, method: :delete, data: { confirm: "ログアウトしますか？" } %>
+<% else %>
+      <h1>タスク管理ツール</h1>
+      <%= link_to 'ログイン', login_path %> 
+<% end %>
