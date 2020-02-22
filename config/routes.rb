@@ -9,6 +9,6 @@ delete 'logout', to: 'sessions#destroy'
 get 'signup', to: 'users#new'
 
 resources :tasks
-resources :users, only: [:index, :new, :show, :create]
+resources :users
 
 end
