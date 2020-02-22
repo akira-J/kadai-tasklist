@@ -1,7 +1,7 @@
   <% tasks.each do |task| %>
-        <div><%= link_to task.user.name, user_path(task.user) %> posted at <%= task.created_at %></div>
+        <div><%= link_to task.user.name, task_path(task.user) %> posted at <%= task.created_at %></div>
         <div>
-          <p>コンテント：<%= task.content %><br>ステータス：<%= task.status%></p>
+          <p>コンテント：<%= task.content %><br>ステータス：<%= task.status %></p>
         </div>
         <div>
           <% if current_user == task.user %>
