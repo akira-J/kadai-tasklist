@@ -26,4 +26,8 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :password, :password_confirmation)
   end
+  
+  def counts(user)
+    @count_microposts = user.microposts.count
+  end
 end
