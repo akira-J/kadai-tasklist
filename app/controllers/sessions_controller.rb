@@ -22,9 +22,9 @@ class SessionsController < ApplicationController
   end
   
    private
-  def login(name, password)
+  def login(name, email, password)
     @user = User.find_by(name: name)
-    if @user && @user.authenticate(password)
+    if @user && @user.authenticate(email, password)
       # ログイン成功
       session[:user_id] = @user.id
       return true
