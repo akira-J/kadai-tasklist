@@ -1,6 +1,4 @@
-<div class="text-center">
-  <h1>アカウント作成</h1>
-</div>
+<h1>アカウント作成</h1>
 
   <%= form_with(model: @user, local: true) do |f| %>
    <%= render 'layouts/error_messages', model: f.object %>
@@ -11,7 +9,7 @@
     </div>
     <div class="form-group">
       <%= f.label :email, 'メールアドレス' %>
-      <%= f.text_field :email, class: "form-control" %>
+      <%= f.email_field :email, class: "form-control" %>
     </div>
     <div class="form-group">
       <%= f.label :password, 'パスワード' %>
