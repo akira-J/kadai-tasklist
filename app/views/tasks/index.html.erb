@@ -3,7 +3,7 @@
         <div><%= task.user.name %>posted at <%= task.created_at %></div>
         <div><p>タスク：<%= task.content %><br>ステータス：<%= task.status %></p></div>  
       <% if current_user == task.user %>
-        <div><%= link_to "削除する", task, method: :delete, data: { confirm: "本当に削除しますか？" } %></div>
+       <div><%= link_to "詳細を見る", task %></div>
       <% end %>
      <% end %>
    
