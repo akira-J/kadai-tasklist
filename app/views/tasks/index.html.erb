@@ -1,16 +1,12 @@
 <% if logged_in? %>
-  <% @tasks.each do |task| %>
-        <div><%= task.user.name %> posted at <%= task.created_at %></div>
-        <div>
-          <p>コンテント：<%= task.content %><br>ステータス：<%= task.status %></p>
-        </div>
-        <div>
-          <% if current_user == task.user %>
-            <%= link_to "削除する", task, method: :delete, data: { confirm: "本当に削除しますか？" } %>
-          <% end %>
-        </div>
-  <% end %>
-
+      <% @tasks.each do |task| %>
+        <div><%= task.user.name %>posted at <%= task.created_at %></div>
+        <div><p>タスク：<%= task.content %><br>ステータス：<%= task.status %></p></div>  
+      <% if current_user == task.user %>
+        <div><%= link_to "削除する", task, method: :delete, data: { confirm: "本当に削除しますか？" } %></div>
+      <% end %>
+     <% end %>
+   
   <%= link_to "新規登録ページ", new_task_path %>
   <%= link_to 'ログアウト', logout_path, method: :delete, data: { confirm: "ログアウトしますか？" } %>
 <% else %>

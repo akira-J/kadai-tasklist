@@ -3,13 +3,16 @@ class TasksController < ApplicationController
   before_action :correct_user, only: [:show, :edit, :update, :destroy]
   
   def index
-    @tasks =  current_user.tasks.all
+    @tasks =  current_user.tasks
   end
+  
   def show
   end
+  
   def new
-    @task = Task.new
+    @task = current_user.tasks.build
   end
+  
   def create
    @task = current_user.tasks.build(task_params)
    if @task.save
@@ -21,8 +24,10 @@ class TasksController < ApplicationController
      render :new
    end
   end
+  
   def edit
   end
+  
   def update
     
     if @task.update(task_params)
@@ -33,6 +38,7 @@ class TasksController < ApplicationController
      render :edit
     end
   end
+  
    def destroy
      @task.destroy
     
